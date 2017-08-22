@@ -1,7 +1,9 @@
 using Sterling.Core.Database;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Sterling.Core;
+using System.Threading;
 
 namespace Sterling.CmdLine.Test
 {
@@ -24,13 +26,15 @@ namespace Sterling.CmdLine.Test
             var cats = new [] { "Panther", "Cougar", "Lynx", "Jaguar", "Leopard", "Cheetah", "Lion"};
             var planets = new [] { "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"};
 
+            var colorItemList = colors.Select(c => new CoolColor { Name = c }).ToList();
+            Console.WriteLine("Saving colors (doesn't really take a second, but we'll wait anyway)...");
+            db.SaveAsync<CoolColor>(colorItemList);
+            Thread.Sleep(1000); // just pause a bit because we're not monitoring the background worker
             Console.WriteLine("Creating combinations...");
             var planetId = 1;
             var comboCount = 0;
-            foreach(var color in colors)
+            foreach(var colorItem in colorItemList)
             {
-                var colorItem = new CoolColor { Name = color };
-                db.Save(colorItem);
                 foreach(var cat in cats) 
                 {
                     var catItem = new Cat { Key = $"CAT-{cat}", Name = cat };
