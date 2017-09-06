@@ -17,6 +17,7 @@ namespace Sterling.CmdLine.Test
                 CreateTableDefinition<CoolColor,Guid>(c => c.Id),
                 CreateTableDefinition<Planet,int>(p => p.Id),
                 CreateTableDefinition<Combo,int>(co => co.Id)
+                    .WithIndex<Combo, Guid, Tuple<string, string>, int>("Cats and Planets", c => Tuple.Create(c.Color.Id, Tuple.Create(c.Cat.Name, c.Planet.Name)))
             };
         }
 

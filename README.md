@@ -43,3 +43,17 @@ Run the test:
 `dotnet sterling-console-test.dll`
 
 You're in business!
+
+## USDA Importer
+
+The USDA importer will grab foods from the publicly available USDA nutrition database and import into Sterling. For demo purposes, it will filter just a few nutrient types (protein, carbohydrate, and fat) and import only foods in the "Cereal" group. You can tweak these as needed but the memory driver has not been optimized and runs slow for large data sets.
+
+The importer demonstrates the use of an index to sort by nutrient quantities. This isn't a "true" sort because they are not multiplied by weight values, but generally should approximate the right order.
+
+`cd sterling-net-core/usda-importer`
+
+`dotnet build -c Release`
+
+`dotnet bin/Release/netcoreapp2.0/usda-importer.dll`
+
+Follow me on Twitter: [@JeremyLikness](https://twitter.com/JeremyLikness)
