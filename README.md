@@ -2,11 +2,11 @@
 
 This is a port of the [Sterling Open Source NoSQL Database](https://github.com/jeremylikness/sterlingnosql).
 
-> NOTE: This is not intended for production use.
+Read the related blog post: [.NET Core 20 is Ready and Sterling Proves It!](https://blog.jeremylikness.com/https-blog-jeremylikness-com-net-core-2-0-is-ready-and-sterling-proves-it-41350afd18a9)
 
-The port was made to demonstrate the increased surface area of the .NET Core 2.0 APIs using .NET Standard 2.0.
+> NOTE: Sterling is not currently intended for production use. It was ported to demonstrate [what's new in .NET Core 2.0](https://docs.microsoft.com/dotnet/core/whats-new/) and the increased surface area of the [.NET Standard 2.0 APIs](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md). 
 
-The engine uses the following features that did not exist in 1.1:
+The engine uses the following features that did not exist in .NET Core 1.0:
 
 * `BackgroundWorker` to save lists on a separate thread
 * `Type` methods including:
